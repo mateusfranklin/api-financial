@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+/*
+Route::get('/', function () {
+    return redirect('api');
 });
+*/
+
+Route::get('/', function () {
+    return response()->json(['message' => 'Financial API', 'status' => 'Connected']);;
+});
+
+Route::get('/banks', 'App\Http\Controllers\BanksController@index')->name('Bank');
+Route::get('/flows', 'App\Http\Controllers\FlowsController@index')->name('Flow');
